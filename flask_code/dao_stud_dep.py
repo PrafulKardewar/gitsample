@@ -5,36 +5,44 @@ from abc import ABC,abstractmethod
 
 #crud
 class DepService(ABC):
-
-    def create_dep(self,dep):
+    @abstractmethod
+    def add_dep(self,dep):
         pass
 
+    @abstractmethod
     def updat_dep(self,dep):
         pass
 
+    @abstractmethod
     def delete_dep(self,dep_id):
         pass
 
+    @abstractmethod
     def get_single_dep(self,dep_id):
         pass
 
+    @abstractmethod
     def get_all_deps(self):
         pass
 
 
 class StudService(ABC):
-
-    def create_dep(self, dep):
+    @abstractmethod
+    def add_stud(self, stud):
         pass
 
-    def updat_dep(self, dep):
+    @abstractmethod
+    def updat_stud(self, stud):
         pass
 
-    def delete_dep(self, dep_id):
+    @abstractmethod
+    def delete_stud(self, stud_id):
         pass
 
-    def get_single_dep(self, dep_id):
+    @abstractmethod
+    def get_single_stud(self, stud_id):
         pass
 
-    def get_all_deps(self):
+    @abstractmethod
+    def get_all_studs(self):
         pass
