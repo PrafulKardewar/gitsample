@@ -3,7 +3,7 @@ from flask_code.models import  db,Department,Student
 
 
 
-class DepServiceimple(DepService):
+class DepDaoimple(DepService):
 
 
     def get_single_dep(self,dep_id):
@@ -32,6 +32,7 @@ class DepServiceimple(DepService):
         if dept:
             dept.dep_name=dep.dep_name
             dept.dep_strength=dep.dep_strength
+            dept.active='Y'
             db.session.commit()
             return 'department updated succsessfully'
         else:
@@ -55,7 +56,7 @@ class DepServiceimple(DepService):
         return depts
 
 
-class StudServiceimpl(StudService):
+class StudDaoimpl(StudService):
 
     def add_stud(self, stud):
             studnt = self.get_single_stud(stud.id)
