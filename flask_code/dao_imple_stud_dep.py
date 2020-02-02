@@ -73,6 +73,7 @@ class StudDaoimpl(StudService):
             std.name = stud.name
             std.marks = stud.marks
             std.depId=stud.depId
+            std.Active='Y'
             db.session.commit()
             return 'department updated succsessfully'
         else:

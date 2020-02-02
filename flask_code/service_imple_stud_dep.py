@@ -56,4 +56,4 @@ class StudServiceimpl():
 
     @staticmethod
     def dummy_stud():
-        return Student(id='',name='',marks=0,depid='')
+        return Student(id='',name='',marks=0,depId='')

@@ -2,9 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student info</title>
+    <title>Resistor Students</title>
 </head>
 <body>
+<center><h2 >Enroll here</h2></center><br><br>
+{% if flag==1 %}
+<form action="http://localhost:5000/student/save" method="post">
+     Student Id       :   <input type="text" name="sid" value="{{dummy.id}}"><br><br>
+     Student Name     :   <input type="text" name="sname" value="{{dummy.name}}"><br><br>
+     Student marks :   <input type="text" name="smarks" value="{{dummy.marks}}"><br><br>
+     Student Department : <select name="dep">
+                               <option>---select---</option>
+                         {% for dep in departments  %}
+                    <option value="{{dep.dep_id}}">{{dep.dep_name}}</option>
+                        {% endfor %}
+                           </select>
 
+
+                             <input type="submit"><br><br>
+</form>
+{% else %}
+<form action="http://localhost:5000/student/update" method="post">
+     Student Id       :   <input type="text" name="sid" value="{{dummy.id}}"><br><br>
+     Student Name     :   <input type="text" name="sname" value="{{dummy.name}}"><br><br>
+     Student marks :   <input type="text" name="smarks" value="{{dummy.marks}}"><br><br>
+     Student Department : <select name="dep" multiple>
+                         {% for dep in departments  %}
+                    <option value="{{dep.dep_id}}">{{dep.dep_name}}</option>
+                        {% endfor %}
+                           </select>
+                             <input type="submit" value="Update"><br><br>
+</form>
+{% endif %}
+
+
+{% if students%}
+<h2>Resistored students</h2>
+<table border="1">
+    <thead>
+    <th>StudentId</th>
+    <th>StudentName</th>
+    <th>StudentMarks</th>
+    <th>SudentDept</th>
+    <th>Student Status</th>
+    <th>Actions</th>
+    </thead>
+
+    {%for std in students%}
+
+   <tbody>
+<td>{{std.id}}</td>
+<td>{{std.name}}</td>
+<td>{{std.marks}}</td>
+<td>{{std.depId}}</td>
+<td>{{std.Active}}</td>
+<td>
+
+    <a href="http://localhost:5000/student/edit/{{std.id}}">Edit</a>
+    <a href="http://localhost:5000/student/delete/{{std.id}}">Delete</a>
+
+</td>
+</tbody>
+    {% endfor %}
+
+</table>
+{% endif %}
 </body>
 </html>
